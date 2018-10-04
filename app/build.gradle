@@ -1,0 +1,61 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.zhengyuan.emoutproductaftersale"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 101
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            res.srcDirs =
+                    [
+                            'src/main/res/layout/aftersale',
+                            'src/main/res/layout/aftersale/QualityEvent',
+                            'src/main/res/layout/aftersale/OutRetrofitting',
+
+                            'src/main/res/layout/outer',
+
+                            'src/main/res/layout/tools',
+                            'src/main/res/layout',
+                            'src/main/res'
+                    ]
+        }
+    }
+}
+
+apply plugin: 'replugin-plugin-gradle'
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+
+dependencies {
+    //implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.qihoo360.replugin:replugin-plugin-lib:2.2.1'
+    compileOnly files('libs/baselib.jar')  //库依赖
+    implementation(name: 'reslib', ext: 'aar')
+
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile project(':zxing')
+    configurations.all {
+        resolutionStrategy.force 'com.android.support:support-annotations:26.1.0'
+    }
+}
