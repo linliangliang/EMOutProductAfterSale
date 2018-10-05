@@ -54,7 +54,11 @@
                             android:id="@+id/GZDealInfo"
                             android:layout_width="match_parent"
                             android:layout_height="70dp"
-                            style="@style/my_edittext_style_blue2"
+                            android:background="@drawable/bg_edittext_selector_blueframe_whitebg"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="2dp"
                             android:gravity="start|top"
                             android:inputType="textMultiLine"
                             android:hint="故障处理措施信息"
@@ -81,8 +85,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_margin="10dp"
                 android:orientation="vertical">
                 <Button
                     android:id="@+id/NESubmitButton"

@@ -4,154 +4,194 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/Black"
+    android:orientation="vertical"
     tools:context="com.zhengyuan.emoutproductaftersale.MainActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <include layout="@layout/widget_contact_title_bar" />
     </LinearLayout>
-<!--头部-->
+    <!--头部-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_edittext_selector_grayframe_whitebg"
         android:orientation="vertical"
-        style="@style/my_edittext_style_black">
+        android:paddingBottom="2dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="2dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="故障处理反馈类型"
             android:textColor="#000000"
-            android:textSize="15sp"
-            android:layout_gravity="center"/>
+            android:textSize="15sp" />
+
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <EditText
                 android:id="@+id/twoCars"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:textSize="13sp"
-                android:text="两车互倒处理故障登记"
+                android:gravity="center"
+                android:layout_margin="3dp"
+                android:background="@drawable/bg_edittext_selector_noframe_graybg_3"
+                android:focusable="false"
+                android:padding="3dp"
                 android:singleLine="true"
+                android:layout_weight="1"
+                android:text="两车互倒处理故障登记"
+                android:textSize="13sp" />
 
-                android:editable="false"/>
             <EditText
                 android:id="@+id/CompanyMoney"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:textSize="13sp"
-                android:text="利用公司资产处理故障登记"
+                android:gravity="center"
+                android:background="@drawable/bg_edittext_selector_noframe_graybg_3"
+                android:padding="3dp"
+                android:layout_margin="3dp"
+                android:focusable="false"
                 android:singleLine="true"
-                android:editable="false"/>
+                android:layout_weight="1"
+                android:text="利用公司资产处理故障登记"
+                android:textSize="13sp" />
         </LinearLayout>
+
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-        <EditText
-            android:id="@+id/OtherMoney"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textSize="13sp"
-            android:text="利用段方资产处理故障登记"
-            android:singleLine="true"
-            android:editable="false"/>
-        <EditText
-            android:id="@+id/NoExchange"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textSize="13sp"
-            android:text="未更换配件处理故障登记"
-            android:singleLine="true"
-            android:editable="false"/>
+
+            <EditText
+                android:id="@+id/OtherMoney"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="@drawable/bg_edittext_selector_noframe_graybg_3"
+                android:padding="3dp"
+                android:layout_margin="3dp"
+                android:focusable="false"
+                android:singleLine="true"
+                android:layout_weight="1"
+                android:text="利用段方资产处理故障登记"
+                android:textSize="13sp" />
+
+            <EditText
+                android:id="@+id/NoExchange"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="@drawable/bg_edittext_selector_noframe_graybg_3"
+                android:padding="3dp"
+                android:layout_margin="3dp"
+                android:focusable="false"
+                android:singleLine="true"
+                android:layout_weight="1"
+                android:text="未更换配件处理故障登记"
+                android:textSize="13sp" />
         </LinearLayout>
     </LinearLayout>
+
     <Spinner
         android:id="@+id/companyNameSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_edittext_selector"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:background="@drawable/bg_edittext_selector_blue"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
-        android:spinnerMode="dialog"></Spinner>
+        android:spinnerMode="dialog" />
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:orientation="horizontal">
+
         <EditText
             android:id="@+id/SercherBy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:background="@drawable/bg_edittext_selector"
-            android:paddingTop="2dp"
-            android:paddingBottom="2dp"
-            android:paddingRight="21dp"
-            android:paddingLeft="21dp"
-            android:textSize="15dp"
             android:layout_gravity="center"
-            android:hint="请输入车型车号，以空格隔开"/>
+            android:layout_weight="5"
+            android:background="@drawable/bg_edittext_selector_noframe_graybg"
+            android:drawableRight="@mipmap/search_blue32"
+            android:hint="请输入车型车号，以空格隔开"
+            android:paddingBottom="2dp"
+            android:paddingLeft="21dp"
+            android:paddingRight="21dp"
+            android:paddingTop="2dp"
+            android:textSize="15dp" />
+
         <ImageView
             android:id="@+id/SercherInfo"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:layout_marginRight="20dp"
             android:layout_marginLeft="10dp"
-            android:src="@mipmap/search_blue128"/>
+            android:layout_marginRight="20dp"
+            android:src="@mipmap/search_blue128" />
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dip"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="5dp"
         android:background="#CCCCCC" />
-    <!--
 
--->
 
     <!--展示数据-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="质量信息"
         android:textColor="#000000"
-        android:textSize="13sp"
-        android:layout_gravity="center"/>
+        android:textSize="13sp" />
+
     <TextView
         android:id="@+id/emptyTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="暂无数据！"
         android:textColor="@color/gray"
-        android:layout_gravity="center"
-        android:visibility="gone"/>
+        android:visibility="gone" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp">
 
         <LinearLayout
             android:id="@+id/qulityInfoListLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="5dp">
-        </LinearLayout>
+            android:padding="5dp"></LinearLayout>
     </ScrollView>
 </LinearLayout>

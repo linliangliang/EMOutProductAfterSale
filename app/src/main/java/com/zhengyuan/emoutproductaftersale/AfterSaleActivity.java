@@ -14,8 +14,10 @@ import com.zhengyuan.emoutproductaftersale.R;
  */
 
 public class AfterSaleActivity extends Activity {
-    String sname= EMProApplicationDelegate.userInfo.getUserId();
+    String sname = EMProApplicationDelegate.userInfo.getUserId();
     private ImageButton backBtn;
+    private ImageButton menu;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +30,10 @@ public class AfterSaleActivity extends Activity {
                 finish();
             }
         });
+        menu = (ImageButton) findViewById(R.id.main_menu_bn);
+        menu.setVisibility(View.GONE);
+
         TextView textView = findViewById(R.id.title_tv);
-        textView.setText("售后工资结算依据录入"+"-"+sname);
+        textView.setText("售后工资结算依据录入" + "-" + sname);
     }
 }

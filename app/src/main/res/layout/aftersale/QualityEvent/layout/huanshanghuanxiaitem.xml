@@ -1,109 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:background="@drawable/bg_edittext_selector_blueframe_whitebg"
+    android:padding="4dp"
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
-    style="@style/my_edittext_style_blue2"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:orientation="vertical">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="故障处理措施（换上:）"/>
+            android:text="故障处理措施（换上）" />
+
         <Button
             android:id="@+id/Add_Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/buttonadd"
             android:minHeight="30dp"
             android:minWidth="30dp"
-            android:background="@drawable/buttonadd"
-            android:textSize="25dp"
-            android:layout_alignParentRight="true"
-            android:text="+"/>
+            android:text="+"
+            android:textSize="20dp" />
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        style="@style/my_edittext_style_black">
+        android:background="@drawable/edittext_grayframe_whitebg"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:orientation="horizontal">
+
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_marginLeft="10dp"
-            android:layout_weight="2">
+            android:layout_weight="3"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="物料代码:"
-                    android:textSize="13sp"/>
+                    android:textSize="13sp" />
+
                 <EditText
                     android:id="@+id/HSWLDMEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:focusable="false"
                     android:singleLine="true"
-                    android:textSize="13sp"
-                    />
+                    android:background="@drawable/bg_edittext_selector_gray"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="2dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textSize="13sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="物料名称:"
-                    android:textSize="13sp"/>
+                    android:textSize="13sp" />
+
                 <EditText
                     android:id="@+id/HSWLMCEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="true"
-                    android:textSize="13sp"
-                    />
+                    android:background="@drawable/bg_edittext_selector_gray"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="2dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:focusable="false"
+                    android:textSize="13sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="序  列  号:"
-                    android:textSize="13sp"/>
+                    android:textSize="13sp" />
+
                 <EditText
                     android:id="@+id/HSXLHEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:singleLine="true"/>
+                    android:background="@drawable/bg_edittext_selector_blue"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="2dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:singleLine="true"
+                    android:textSize="13sp"/>
             </LinearLayout>
 
 
         </LinearLayout>
+
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_marginLeft="20dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:orientation="vertical">
+
             <ImageView
                 android:id="@+id/HSSacnImageView"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:src="@mipmap/scan"/>
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@mipmap/scan" />
+
             <ImageView
                 android:id="@+id/HSTakePhotoImageView"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:src="@mipmap/takephoto"/>
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@mipmap/takephoto" />
         </LinearLayout>
 
     </LinearLayout>
@@ -118,83 +155,116 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
-            android:text="故障处理措施（换下:）"/>
+            android:text="故障处理措施（换下）" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            style="@style/my_edittext_style_black">
+            android:background="@drawable/edittext_grayframe_whitebg"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:orientation="horizontal">
+
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_marginLeft="10dp"
-                android:layout_weight="2">
+                android:layout_weight="3"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="物料代码:"
-                        android:textSize="13sp"/>
+                        android:textSize="13sp" />
+
                     <EditText
                         android:id="@+id/HXWLDMEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/bg_edittext_selector_gray"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginTop="2dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
                         android:singleLine="true"
-                        android:textSize="13sp"
-                       />
+                        android:focusable="false"
+                        android:textSize="13sp" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="物料名称:"
-                        android:textSize="13sp"/>
+                        android:textSize="13sp" />
+
                     <EditText
                         android:id="@+id/HXWLMCEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/bg_edittext_selector_gray"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginTop="2dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
                         android:singleLine="true"
-                        android:textSize="13sp"
-                        />
+                        android:focusable="false"
+                        android:textSize="13sp" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="序  列  号:"
-                        android:textSize="13sp"/>
+                        android:textSize="13sp" />
+
                     <EditText
                         android:id="@+id/HXXLHEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:singleLine="true" />
+                        android:background="@drawable/bg_edittext_selector_blue"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginTop="2dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:singleLine="true"
+                        android:textSize="13sp"/>
                 </LinearLayout>
-
-
             </LinearLayout>
+
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_marginLeft="20dp"
                 android:layout_weight="1"
-                android:layout_marginLeft="20dp">
+                android:orientation="vertical">
+
                 <ImageView
                     android:id="@+id/HXSacnImageView"
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
-                    android:src="@mipmap/scan"/>
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@mipmap/scan" />
+
                 <ImageView
                     android:id="@+id/HXTakePhotoImageView"
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
-                    android:src="@mipmap/takephoto"/>
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@mipmap/takephoto" />
             </LinearLayout>
         </LinearLayout>
 

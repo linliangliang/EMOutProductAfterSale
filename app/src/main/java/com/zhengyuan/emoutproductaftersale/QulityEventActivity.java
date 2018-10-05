@@ -35,6 +35,7 @@ import java.util.List;
 public class QulityEventActivity extends Activity {
     String sname= EMProApplicationDelegate.userInfo.getUserId();
     private ImageButton backBtn;
+    private ImageButton menu;
     //父布局
     private LinearLayout qulityInfoListLinearLayout = null;
     private int qualityInfoCounts=0;//父布局的item数目
@@ -86,10 +87,12 @@ public class QulityEventActivity extends Activity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Toast.makeText(MainActivity.this, "test", Toast.LENGTH_SHORT).show();
              finish();
             }
         });
+        menu=(ImageButton)findViewById(R.id.main_menu_bn);
+        menu.setVisibility(View.GONE);
+
         twoCarsHD = findViewById(R.id.twoCars);
         CompanyMoney = findViewById(R.id.CompanyMoney);
         OtherMoney =findViewById(R.id.OtherMoney);

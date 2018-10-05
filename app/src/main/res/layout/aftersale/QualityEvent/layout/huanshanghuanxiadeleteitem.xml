@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
-    style="@style/my_edittext_style_blue2"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:background="@drawable/bg_edittext_selector_blueframe_whitebg"
+    android:padding="4dp"    >
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -13,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="故障处理措施（换上:）"/>
+            android:text="故障处理措施（换上）"/>
         <Button
             android:id="@+id/deleteButton"
             android:layout_width="wrap_content"
@@ -21,7 +22,7 @@
             android:minHeight="30dp"
             android:minWidth="30dp"
             android:background="@drawable/buttonadd"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:layout_alignParentRight="true"
             android:text="-"/>
     </RelativeLayout>
@@ -30,13 +31,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        style="@style/my_edittext_style_black">
+        android:background="@drawable/edittext_grayframe_whitebg"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp">
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginLeft="10dp"
-            android:layout_weight="2">
+            android:layout_gravity="center_vertical"
+            android:layout_weight="3">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -49,7 +55,14 @@
                     android:id="@+id/HSWLDMDeleteEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/bg_edittext_selector_gray"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="2dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:focusable="false"
                     android:singleLine="true"
+                    android:textSize="13sp"
                     />
             </LinearLayout>
             <LinearLayout
@@ -64,7 +77,14 @@
                     android:id="@+id/HSWLMCDeleteEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:singleLine="true"/>
+                    android:background="@drawable/bg_edittext_selector_gray"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="2dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:focusable="false"
+                    android:singleLine="true"
+                    android:textSize="13sp"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -78,26 +98,33 @@
                     android:id="@+id/HSXLHDeleteEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:singleLine="true"/>
+                    android:background="@drawable/bg_edittext_selector_gray"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="2dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:focusable="false"
+                    android:singleLine="true"
+                    android:textSize="13sp"/>
             </LinearLayout>
 
 
         </LinearLayout>
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginLeft="20dp"
             android:layout_weight="1">
             <ImageView
                 android:id="@+id/HSSacnDeleteImageView"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:src="@mipmap/scan"/>
             <ImageView
                 android:id="@+id/HSTakePhotoDeleteImageView"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:src="@mipmap/takephoto"/>
         </LinearLayout>
 
@@ -106,25 +133,31 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
-            android:text="故障处理措施（换下:）"/>
+            android:text="故障处理措施（换下）"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            style="@style/my_edittext_style_black">
+            android:background="@drawable/edittext_grayframe_whitebg"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp">
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginLeft="10dp"
-                android:layout_weight="2">
+                android:layout_weight="3"
+                android:layout_gravity="center_vertical">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -137,7 +170,14 @@
                         android:id="@+id/HXWLDMDeleteEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:singleLine="true" />
+                        android:background="@drawable/bg_edittext_selector_gray"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginTop="2dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:focusable="false"
+                        android:singleLine="true"
+                        android:textSize="13sp"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -151,7 +191,14 @@
                         android:id="@+id/HXWLMCDeleteEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:singleLine="true" />
+                        android:background="@drawable/bg_edittext_selector_gray"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginTop="2dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:focusable="false"
+                        android:singleLine="true"
+                        android:textSize="13sp"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -165,26 +212,31 @@
                         android:id="@+id/HXXLHDeleteEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:singleLine="true" />
+                        android:background="@drawable/bg_edittext_selector_gray"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginTop="2dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:focusable="false"
+                        android:singleLine="true"
+                        android:textSize="13sp"/>
                 </LinearLayout>
-
-
             </LinearLayout>
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_weight="1"
                 android:layout_marginLeft="20dp">
                 <ImageView
                     android:id="@+id/HXSacnDeleteImageView"
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:src="@mipmap/scan"/>
                 <ImageView
                     android:id="@+id/HXTakePhotoDeleteImageView"
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:src="@mipmap/takephoto"/>
             </LinearLayout>
         </LinearLayout>

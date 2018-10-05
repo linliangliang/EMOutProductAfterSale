@@ -12,6 +12,7 @@ public class MainActivity extends Activity {
     String sname= null;
     //sname=EMProApplicationDelegate.userInfo.getUserId();
    private ImageButton backBtn;
+    private ImageButton menu;
     private Button Outer=null;
     private Button AfterSale=null;
 
@@ -34,6 +35,9 @@ public class MainActivity extends Activity {
                 finish();
             }
         });
+        menu=(ImageButton)findViewById(R.id.main_menu_bn);
+        menu.setVisibility(View.GONE);
+
         Outer=(Button)findViewById(R.id.outer);
         AfterSale=(Button)findViewById(R.id.aftersale);
         Outer.setOnClickListener(new View.OnClickListener(){

@@ -44,6 +44,8 @@ public class DealDataActivity extends Activity implements View.OnClickListener {
     String username = EMProApplicationDelegate.userInfo.getUserName();
 
     private ImageButton backBtn;
+    private ImageButton menu;
+
     private EditText qualityId;
     private EditText Ju;
     private EditText Duan;
@@ -65,8 +67,8 @@ public class DealDataActivity extends Activity implements View.OnClickListener {
     String[] photoPath = new String[3];
     String[] photoName = new String[3];
 
-    String[] allPhotoName=new String[150];
-    String[] allPhotoPath=new String[150];
+    String[] allPhotoName = new String[150];
+    String[] allPhotoPath = new String[150];
 
     static int IMAGE = 0;
     ;
@@ -169,6 +171,7 @@ public class DealDataActivity extends Activity implements View.OnClickListener {
                     submitButton.setBackgroundResource(R.drawable.shape_rectangle_radius_theme);
                     submitButton.setEnabled(true);
                     Toast.makeText(DealDataActivity.this, "数据提交成功", Toast.LENGTH_SHORT).show();
+                    finish();
                 } else {
                     Toast.makeText(DealDataActivity.this, "系统故障,提交失败，请联系信息中心!", Toast.LENGTH_SHORT).show();
                 }
@@ -183,6 +186,7 @@ public class DealDataActivity extends Activity implements View.OnClickListener {
                     submitButton.setBackgroundResource(R.drawable.shape_rectangle_radius_theme);
                     submitButton.setEnabled(true);
                     Toast.makeText(DealDataActivity.this, "数据提交成功", Toast.LENGTH_SHORT).show();
+                    finish();
                 } else {
                     Toast.makeText(DealDataActivity.this, "系统故障,提交失败，请联系信息中心!", Toast.LENGTH_SHORT).show();
                 }
@@ -197,10 +201,13 @@ public class DealDataActivity extends Activity implements View.OnClickListener {
                     Toast.makeText(DealDataActivity.this, "序列号有误，没有找到物料信息！", Toast.LENGTH_SHORT).show();
                 } else {
                     if (index.equals("hs")) {
+                        HSWLDMEdit.setText(MaterialInfo.split("=")[0]);
+                        HSWLMCEdit.setText(MaterialInfo.split("=")[1]);
+                    } else if (index.equals("hx")) {
                         HXWLDMEdit.setText(MaterialInfo.split("=")[0]);
                         HXWLMCEdit.setText(MaterialInfo.split("=")[1]);
                     }
-                    Toast.makeText(DealDataActivity.this, MaterialInfo, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(DealDataActivity.this, MaterialInfo, Toast.LENGTH_SHORT).show();
                 }
             }
         };
@@ -244,6 +251,10 @@ public class DealDataActivity extends Activity implements View.OnClickListener {
 
 
     private void init() {
+
+        menu=(ImageButton)findViewById(R.id.main_menu_bn);
+        menu.setVisibility(View.GONE);
+
         qualityId = findViewById(R.id.QualityId);
         Ju = findViewById(R.id.Ju);
         Duan = findViewById(R.id.Duan);
@@ -310,10 +321,14 @@ public class DealDataActivity extends Activity implements View.OnClickListener {
                             return;
                         } else {
                             //发送获取物料代码的请求
-                            getMaterialInfo(HSXLHEdit.getText().toString().trim());
-                            index = "hs";
-                       /* HSWLDMEdit.setText(MaterialInfo.split("=")[0]);
-                        HSWLDMEdit.setText(MaterialInfo.split("=")[1]);*/
+                            String temp = HSXLHEdit.getText().toString().trim();
+                            if (temp != null && temp.length() > 0) {
+                                getMaterialInfo(temp);
+                                index = "hs";
+                            } else {
+                                HSWLDMEdit.setText("");
+                                HSWLMCEdit.setText("");
+                            }
                         }
                     }
                 });
@@ -328,10 +343,14 @@ public class DealDataActivity extends Activity implements View.OnClickListener {
                             return;
                         } else {
                             //发送获取物料代码的请求
-                            getMaterialInfo(HXXLHEdit.getText().toString().trim());
-                            index = "hx";
-                      /*  HXWLDMEdit.setText(MaterialInfo.split("=")[0]);
-                        HXWLMCEdit.setText(MaterialInfo.split("=")[1]);*/
+                            String temp = HXXLHEdit.getText().toString().trim();
+                            if (temp != null && temp.length() > 0) {
+                                getMaterialInfo(temp);
+                                index = "hx";
+                            } else {
+                                HXWLDMEdit.setText("");
+                                HXWLMCEdit.setText("");
+                            }
                         }
                     }
                 });
@@ -344,36 +363,36 @@ public class DealDataActivity extends Activity implements View.OnClickListener {
             TCSubmitButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     BeiZhuInfo = BeiZhu.getText().toString();
-                      if(BeiZhuInfo.equals("")){
-                          Toast.makeText(DealDataActivity.this, "请完善备注信息！", Toast.LENGTH_SHORT).show();
-                          return;
-                      }
+                    if (BeiZhuInfo.equals("")) {
+                        Toast.makeText(DealDataActivity.this, "请完善备注信息！", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
                     smaoInfo = getDealBreakdownDataInfo().toString();
-                     if(!(smaoInfo.toString().equals(""))){
+                    if (!(smaoInfo.toString().equals(""))) {
 
-                         TCSubmitButton.setBackgroundResource(R.drawable.shape_rectangle_radius_gray);
-                         TCSubmitButton.setEnabled(false);
-                         imagePath = getImagePath().toString();
-                         //上传图片到服务器
-                         new Thread(new Runnable() {
-                             //处理图片上传的功能
-                             @Override
-                             public void run() {
-                                 for(int i= 0;i<2*huanshanghuanxiaitemCount;i++){
-                                     if (allPhotoPath[i] != null && !allPhotoPath[i].equals("")) {
-                                         boolean result = FileManagerUtil.uploadFileByUrl(new File(allPhotoPath[i]),
-                                                 allPhotoName[i],
-                                                 Constants.UPLOAD_IMAGE_URL);
-                                     }
-                                 }
+                        TCSubmitButton.setBackgroundResource(R.drawable.shape_rectangle_radius_gray);
+                        TCSubmitButton.setEnabled(false);
+                        imagePath = getImagePath().toString();
+                        //上传图片到服务器
+                        new Thread(new Runnable() {
+                            //处理图片上传的功能
+                            @Override
+                            public void run() {
+                                for (int i = 0; i < 2 * huanshanghuanxiaitemCount; i++) {
+                                    if (allPhotoPath[i] != null && !allPhotoPath[i].equals("")) {
+                                        boolean result = FileManagerUtil.uploadFileByUrl(new File(allPhotoPath[i]),
+                                                allPhotoName[i],
+                                                Constants.UPLOAD_IMAGE_URL);
+                                    }
+                                }
 
-                                 submitData2(DataInfo(),BeiZhuInfo,snameId,username,GZCLType,imagePath,smaoInfo);
-                             }
-                         }).start();
+                                submitData2(DataInfo(), BeiZhuInfo, snameId, username, GZCLType, imagePath, smaoInfo);
+                            }
+                        }).start();
 
-                      }else{
-                         Toast.makeText(DealDataActivity.this, "请完善备注信息！", Toast.LENGTH_SHORT).show();
-                 }
+                    } else {
+                        Toast.makeText(DealDataActivity.this, "请完善备注信息！", Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
 
@@ -416,6 +435,7 @@ public class DealDataActivity extends Activity implements View.OnClickListener {
         }
 
     }
+
     //添加一条item
     private boolean InfoIsOkAddToArrayAndShow() {
         //临时变量
@@ -426,14 +446,14 @@ public class DealDataActivity extends Activity implements View.OnClickListener {
         String HXWLMCText = HXWLMCEdit.getText().toString().trim();
         String HXXLHText = HXXLHEdit.getText().toString().trim();
 
-        String HSImage=photoName[0];
-        String HXImage=photoName[1];
+        String HSImage = photoName[0];
+        String HXImage = photoName[1];
 
         //如果所有数据填充完毕，则添加条目
         if ((!"".equals(HSWLDMText)) & (null != HSWLDMText) & (!"".equals(HSWLMCText)) & (null != HSWLMCText)
                 & ((!"".equals(HSXLHText)) & (null != HSXLHText)) & ((!"".equals(HXWLDMText)) & (null != HXWLDMText))
                 & ((!"".equals(HXWLMCText)) & (null != HXWLMCText)) & ((!"".equals(HXXLHText)) & (null != HXXLHText))
-                & HSImage!=null & HXImage!=null) {
+                & HSImage != null & HXImage != null) {
 
             if (huanshanghuanxiaitemCount < 100) {
 
@@ -457,8 +477,8 @@ public class DealDataActivity extends Activity implements View.OnClickListener {
                 ((ImageView) huanshanghuanxiadeleteitem.findViewById(R.id.HSTakePhotoDeleteImageView)).setImageBitmap(imagesBitmap[huanshanghuanxiaitemCount][0]);
                 ((ImageView) huanshanghuanxiadeleteitem.findViewById(R.id.HXTakePhotoDeleteImageView)).setImageBitmap(imagesBitmap[huanshanghuanxiaitemCount][1]);
                 huanshanghuanxiaitemLayout.addView(huanshanghuanxiadeleteitem);
-                photoName[0]=null;//添加成功后清除变量
-                photoName[1]=null;//添加成功后清除变量
+                photoName[0] = null;//添加成功后清除变量
+                photoName[1] = null;//添加成功后清除变量
                 huanshanghuanxiaitemCount++;
 
 
@@ -560,18 +580,21 @@ public class DealDataActivity extends Activity implements View.OnClickListener {
         );
     }
 
-    //getMaterialInfo
+    //getMaterialInfo 通过序列号查询物料代码和物料名称
     public void getMaterialInfo(String severialNumber) {
-        DataObtainer.INSTANCE.getMaterialInfo(severialNumber,
-                new NetworkCallbacks.SimpleDataCallback() {
-                    @Override
-                    public void onFinish(boolean b, String s, Object o) {
-                        MaterialInfo = (String) o;
-                        Message m = MaterialInfoHandler.obtainMessage();
-                        MaterialInfoHandler.sendMessage(m);
+        if (severialNumber != null && severialNumber.length() > 0) {
+            //如果序列号不为空，查询
+            DataObtainer.INSTANCE.getMaterialInfo(severialNumber,
+                    new NetworkCallbacks.SimpleDataCallback() {
+                        @Override
+                        public void onFinish(boolean b, String s, Object o) {
+                            MaterialInfo = (String) o;
+                            Message m = MaterialInfoHandler.obtainMessage();
+                            MaterialInfoHandler.sendMessage(m);
+                        }
                     }
-                }
-        );
+            );
+        }
     }
 
     //显示照片
@@ -607,8 +630,8 @@ public class DealDataActivity extends Activity implements View.OnClickListener {
                                 }
                             });
                             //暂存图片
-                            allPhotoName[huanshanghuanxiaitemCount*2+0]=photoName[0];
-                            allPhotoPath[huanshanghuanxiaitemCount*2+0]=photoPath[0];
+                            allPhotoName[huanshanghuanxiaitemCount * 2 + 0] = photoName[0];
+                            allPhotoPath[huanshanghuanxiaitemCount * 2 + 0] = photoPath[0];
 
                             break;
                         case 2:
@@ -622,8 +645,8 @@ public class DealDataActivity extends Activity implements View.OnClickListener {
                                     HXTakePhotoImageView.setImageBitmap(bitmap);
                                 }
                             });
-                            allPhotoName[huanshanghuanxiaitemCount*2+1]=photoName[1];
-                            allPhotoPath[huanshanghuanxiaitemCount*2+1]=photoPath[1];
+                            allPhotoName[huanshanghuanxiaitemCount * 2 + 1] = photoName[1];
+                            allPhotoPath[huanshanghuanxiaitemCount * 2 + 1] = photoPath[1];
                             break;
                         case 3:
                             ImageToGallery.saveImageToGallery(getApplicationContext(), bm);
@@ -760,12 +783,12 @@ public class DealDataActivity extends Activity implements View.OnClickListener {
 
 
             if ((t1 != "" && t1 != null) && (t2 != "" && t2 != null) && (t3 != "" && t3 != null) && (t4 != "" && t4 != null) && (t4 != "" && t4 != null) && (t4 != "" && t4 != null)) {
-                result+=t1+"=";
-                result+=t2+"=";
-                result+=t3+"=";
-                result+=t4+"=";
-                result+=t5+"=";
-                result+=t6+"=";
+                result += t1 + "=";
+                result += t2 + "=";
+                result += t3 + "=";
+                result += t4 + "=";
+                result += t5 + "=";
+                result += t6 + "=";
                 huanshanghuanxiaitemCount++;
             }
         }
@@ -793,8 +816,9 @@ public class DealDataActivity extends Activity implements View.OnClickListener {
                 }
         );
     }
+
     //提交第二次的页面的数据
-    private void submitData2(String s1, String s2, String snameId, String username, String GZCLType, String pathFor,String hshxInfo) {
+    private void submitData2(String s1, String s2, String snameId, String username, String GZCLType, String pathFor, String hshxInfo) {
         //获取并提交数据
         DataObtainer.INSTANCE.sendInfoByAll(s1, s2, snameId, username, GZCLType, pathFor, hshxInfo,
                 new NetworkCallbacks.SimpleDataCallback() {
@@ -811,16 +835,17 @@ public class DealDataActivity extends Activity implements View.OnClickListener {
                 }
         );
     }
+
     //获取上传图片的路径
-    public  String  getImagePath(){
-        String allpath ="";
-        for(int i = 0 ;i<2*huanshanghuanxiaitemCount;i++){
-            allpath += allPhotoName[i]+"=";
+    public String getImagePath() {
+        String allpath = "";
+        for (int i = 0; i < 2 * huanshanghuanxiaitemCount; i++) {
+            allpath += allPhotoName[i] + "=";
         }
-        if (allpath != "" &&allpath.length() > 0) {
+        if (allpath != "" && allpath.length() > 0) {
             allpath = allpath.substring(0, allpath.length() - 1);
         }
-         return  allpath;
+        return allpath;
     }
 
 }

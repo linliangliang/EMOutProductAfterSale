@@ -17,6 +17,7 @@ import com.zhengyuan.baselib.constants.EMProApplicationDelegate;
 public class OuterActivity extends Activity {
     String sname= EMProApplicationDelegate.userInfo.getUserId();
     private ImageButton backBtn;
+    private ImageButton menu;
     private Button QulityEvent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,8 @@ public class OuterActivity extends Activity {
                 finish();
             }
         });
+        menu=(ImageButton)findViewById(R.id.main_menu_bn);
+        menu.setVisibility(View.GONE);
 
         TextView textView = findViewById(R.id.title_tv);
         textView.setText("驻外工资结算依据录入"+"-"+sname);

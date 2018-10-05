@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            style="@style/my_edittext_style_blue2">
+            android:background="@drawable/bg_edittext_selector_grayframe_whitebg">
             <CheckBox
                 android:id="@+id/GX_CHECK"
                 android:layout_width="wrap_content"
@@ -43,7 +43,7 @@
                 android:layout_weight="10"
                 android:singleLine="true"
                 android:textSize="11sp"
-                android:editable="false"/>
+                android:focusable="false"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -71,7 +71,7 @@
                 android:layout_weight="10"
                 android:singleLine="true"
                 android:textSize="11sp"
-                android:editable="false"/>
+                android:focusable="false"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -100,7 +100,7 @@
                 android:layout_weight="10"
                 android:singleLine="true"
                 android:textSize="11sp"
-                android:editable="false"/>
+                android:focusable="false"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -123,7 +123,7 @@
                 android:layout_weight="10"
                 android:singleLine="true"
                 android:textSize="11sp"
-                android:editable="false"/>
+                android:focusable="false"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -155,10 +155,14 @@
                 android:textSize="13sp"
                 android:maxLines="3"
                 android:gravity="top|left"
-                style="@style/my_edittext_style_blue2"
+                android:background="@drawable/bg_edittext_selector_grayframe_whitebg"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
                 android:text="问题描述"
                 android:textColor="@color/TextColorUnable"
-                android:editable="false"/>
+                android:focusable="false"/>
         </LinearLayout>
     </LinearLayout>
 
