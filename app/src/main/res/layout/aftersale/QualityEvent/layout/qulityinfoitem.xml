@@ -41,6 +41,12 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="10"
+                android:layout_margin="3dp"
+                android:background="@drawable/bg_edittext_selector_grayframe_whitebg"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:singleLine="true"
                 android:textSize="11sp"
                 android:focusable="false"/>
@@ -69,6 +75,12 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="10"
+                android:layout_margin="3dp"
+                android:background="@drawable/bg_edittext_selector_grayframe_whitebg"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:singleLine="true"
                 android:textSize="11sp"
                 android:focusable="false"/>
@@ -98,6 +110,12 @@
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="10"
+                android:layout_margin="3dp"
+                android:background="@drawable/bg_edittext_selector_grayframe_whitebg"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:singleLine="true"
                 android:textSize="11sp"
                 android:focusable="false"/>
@@ -121,6 +139,12 @@
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="10"
+                android:layout_margin="3dp"
+                android:background="@drawable/bg_edittext_selector_grayframe_whitebg"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:singleLine="true"
                 android:textSize="11sp"
                 android:focusable="false"/>
@@ -155,7 +179,8 @@
                 android:textSize="13sp"
                 android:maxLines="3"
                 android:gravity="top|left"
-                android:background="@drawable/bg_edittext_selector_grayframe_whitebg"
+                android:layout_margin="3dp"
+                android:background="@drawable/bg_edittext_selector_blueframe_whitebg"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:paddingTop="2dp"
@@ -165,5 +190,4 @@
                 android:focusable="false"/>
         </LinearLayout>
     </LinearLayout>
-
 </RelativeLayout>

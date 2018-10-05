@@ -268,7 +268,7 @@ public class DealDataActivity extends Activity implements View.OnClickListener {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
                     /*加这个判断，防止该事件被执行两次*/
-                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    if (event.getAction() == MotionEvent.ACTION_UP) {
                         showInfoDetailDialog(GZDisplay.getText().toString());
                     }
                     return false;
