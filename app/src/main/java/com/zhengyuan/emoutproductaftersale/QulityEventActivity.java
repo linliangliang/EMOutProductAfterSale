@@ -27,6 +27,7 @@ import com.zhengyuan.baselib.constants.EMProApplicationDelegate;
 import com.zhengyuan.baselib.listener.NetworkCallbacks;
 import com.zhengyuan.emoutproductaftersale.utils.DrawableUtil;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,7 +74,7 @@ public class QulityEventActivity extends Activity {
     private EditText OtherMoney;
     private EditText NoHPCL;
 
-    private ImageView serch;
+    public ImageView serch;
     private EditText SercherBy;
 
     //进度条
@@ -288,7 +289,7 @@ public class QulityEventActivity extends Activity {
         companyNameSpinner.setAdapter(companyAdapter);
     }
 
-    private void getCompanyName() {
+    public void getCompanyName() {
         //访问服务器，获取数据填充company[]
         //测试
         company = result1.split(",");
@@ -578,5 +579,25 @@ public class QulityEventActivity extends Activity {
             dialog.show();
         }
     }
+
+    /*//解决handle内存泄漏的问题
+    static class MyHandler extends Handler {
+        WeakReference<QulityEventActivity> mWeakReference;
+
+        public MyHandler(QulityEventActivity activity) {
+            mWeakReference = new WeakReference<QulityEventActivity>(activity);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            final QulityEventActivity activity = mWeakReference.get();
+            if (activity != null) {
+                if (msg.what == 1) {
+
+                }
+            }
+        }
+    }*/
+
 }
 

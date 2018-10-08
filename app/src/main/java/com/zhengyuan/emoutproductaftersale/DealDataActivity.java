@@ -600,6 +600,7 @@ public class DealDataActivity extends Activity implements View.OnClickListener {
     //显示照片
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 0 && resultCode == RESULT_OK && data != null) {
+            //扫码结果返回
             info = data.getStringExtra("result");
             info = recode(info);
             if (info != null && info != "") {
@@ -613,6 +614,7 @@ public class DealDataActivity extends Activity implements View.OnClickListener {
                 Utils.showToast("未扫描");
             }
         } else if (requestCode == REQUST_TAKE_PHOTTO_CODE2 && resultCode == Activity.RESULT_OK) {
+            //拍照结果处理
             Bundle bundle = data.getExtras();
             if (bundle != null) {
                 Bitmap bm = (Bitmap) bundle.get("data");

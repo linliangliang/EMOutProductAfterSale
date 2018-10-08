@@ -48,13 +48,13 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:gravity="center"
                 android:layout_margin="3dp"
+                android:layout_weight="1"
                 android:background="@drawable/bg_edittext_selector_noframe_graybg_3"
                 android:focusable="false"
+                android:gravity="center"
                 android:padding="3dp"
                 android:singleLine="true"
-                android:layout_weight="1"
                 android:text="两车互倒处理故障登记"
                 android:textSize="13sp" />
 
@@ -63,13 +63,13 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:gravity="center"
-                android:background="@drawable/bg_edittext_selector_noframe_graybg_3"
-                android:padding="3dp"
                 android:layout_margin="3dp"
-                android:focusable="false"
-                android:singleLine="true"
                 android:layout_weight="1"
+                android:background="@drawable/bg_edittext_selector_noframe_graybg_3"
+                android:focusable="false"
+                android:gravity="center"
+                android:padding="3dp"
+                android:singleLine="true"
                 android:text="利用公司资产处理故障登记"
                 android:textSize="13sp" />
         </LinearLayout>
@@ -84,13 +84,13 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:gravity="center"
-                android:background="@drawable/bg_edittext_selector_noframe_graybg_3"
-                android:padding="3dp"
                 android:layout_margin="3dp"
-                android:focusable="false"
-                android:singleLine="true"
                 android:layout_weight="1"
+                android:background="@drawable/bg_edittext_selector_noframe_graybg_3"
+                android:focusable="false"
+                android:gravity="center"
+                android:padding="3dp"
+                android:singleLine="true"
                 android:text="利用段方资产处理故障登记"
                 android:textSize="13sp" />
 
@@ -99,13 +99,13 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:gravity="center"
-                android:background="@drawable/bg_edittext_selector_noframe_graybg_3"
-                android:padding="3dp"
                 android:layout_margin="3dp"
-                android:focusable="false"
-                android:singleLine="true"
                 android:layout_weight="1"
+                android:background="@drawable/bg_edittext_selector_noframe_graybg_3"
+                android:focusable="false"
+                android:gravity="center"
+                android:padding="3dp"
+                android:singleLine="true"
                 android:text="未更换配件处理故障登记"
                 android:textSize="13sp" />
         </LinearLayout>
@@ -130,11 +130,40 @@
         android:layout_marginRight="10dp"
         android:orientation="horizontal">
 
+        <!--<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_edittext_selector_noframe_graybg"
+            android:paddingBottom="2dp"
+            android:paddingLeft="21dp"
+            android:paddingRight="21dp"
+            android:paddingTop="2dp"
+            android:textSize="15dp">
+
+            <EditText
+                android:id="@+id/SercherBy1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_edittext_selector_noframe_whitebg_c15"
+                android:layout_weight="1"
+                android:hint="车型" />
+
+            <EditText
+                android:id="@+id/SercherBy2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_edittext_selector_noframe_whitebg_c15"
+                android:layout_weight="1"
+                android:hint="车号" />
+        </LinearLayout>-->
+
         <EditText
             android:id="@+id/SercherBy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="4dp"
             android:layout_weight="5"
             android:background="@drawable/bg_edittext_selector_noframe_graybg"
             android:drawableRight="@mipmap/search_blue32"
@@ -151,7 +180,9 @@
             android:layout_height="32dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="20dp"
-            android:src="@mipmap/search_blue128" />
+            android:src="@mipmap/search_blue128"
+            android:visibility="gone" />
+
     </LinearLayout>
 
     <View
