@@ -11,9 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <include layout="@layout/widget_contact_title_bar" />
     </LinearLayout>
-
 
 
     <LinearLayout
@@ -26,26 +26,30 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@drawable/submitstyle"
+        android:layout_marginBottom="5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="5dp"
-        android:textSize="18sp"
         android:layout_marginTop="20dp"
+        android:background="@drawable/submitstyle"
         android:text="驻外工资结算依据录入"
-        />
+        android:textSize="18sp" />
+
     <Button
         android:id="@+id/aftersale"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@drawable/submitstyle"
+        android:layout_marginBottom="5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="5dp"
-        android:textSize="18sp"
         android:layout_marginTop="20dp"
+        android:background="@drawable/submitstyle"
         android:text="售后工资结算依据录入"
-        />
+        android:textSize="18sp" />
 
+    <ImageView
+        android:id="@+id/testtakephoto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/takephoto" />
 </LinearLayout>

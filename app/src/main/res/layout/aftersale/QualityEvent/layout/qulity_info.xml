@@ -164,6 +164,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
             android:layout_weight="5"
             android:background="@drawable/bg_edittext_selector_noframe_graybg"
             android:drawableRight="@mipmap/search_blue32"

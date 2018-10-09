@@ -35,6 +35,7 @@
         <activity android:name=".DealDataActivity">
 
         </activity>
+
         <meta-data
             android:name="com.qihoo360.plugin.name"
             android:value="EMOutProductAfterSale" />
