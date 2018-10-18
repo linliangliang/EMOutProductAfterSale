@@ -8,4 +8,8 @@
     <color name="TextColorUnable">#808080</color>
     <color name="RoleColor">#ffffff</color>
     <color name="Black">#ffffff</color>
+
+
+    <color name="tab_checked">#4D54D8</color>
+    <color name="tab_unchecked">#757575</color>
 </resources>

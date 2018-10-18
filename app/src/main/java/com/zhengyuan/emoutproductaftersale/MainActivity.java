@@ -1,35 +1,37 @@
 package com.zhengyuan.emoutproductaftersale;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.util.Log;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.ViewPager;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.animation.GlideAnimation;
-import com.bumptech.glide.request.target.SimpleTarget;
+import com.zhengyuan.baselib.constants.EMProApplicationDelegate;
 
-public class MainActivity extends Activity {
-    String sname = null;
-    //sname=EMProApplicationDelegate.userInfo.getUserId();
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class MainActivity extends FragmentActivity {
+    String sname = EMProApplicationDelegate.userInfo.getUserId();
     private ImageButton backBtn;
     private ImageButton menu;
-    private Button Outer = null;
-    private Button AfterSale = null;
 
-    private ImageView testtakephoto = null;
+
+    private BottomNavigationView bottomNavigationView;
+    private ViewPagerAdapter viewPagerAdapter;
+    private ViewPager viewPager;
+    private MenuItem menuItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -40,69 +42,73 @@ public class MainActivity extends Activity {
             textView.setText("驻外售后平台");
         }
 
-        backBtn = findViewById(R.id.title_back_btn);
+        backBtn = (ImageButton) findViewById(R.id.title_back_btn);
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Toast.makeText(MainActivity.this, "test", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
         menu = (ImageButton) findViewById(R.id.main_menu_bn);
         menu.setVisibility(View.GONE);
-
-        Outer = (Button) findViewById(R.id.outer);
-        AfterSale = (Button) findViewById(R.id.aftersale);
-        Outer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, OuterActivity.class);
-                startActivity(intent);
-            }
-
-        });
-        AfterSale.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, AfterSaleActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
-        testtakephoto = (ImageView) findViewById(R.id.testtakephoto);
-        testtakephoto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, ImageToGallery.filePath);
-                startActivityForResult(intent, 2);
-            }
-        });
+        init();
     }
 
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 2 && resultCode == Activity.RESULT_OK) {
-            //Toast.makeText(TakePhotoAndSave.this,"RESULT_OK",Toast.LENGTH_SHORT).show();
-            //拍照结果处理
-            Bundle bundle = data.getExtras();
-            if (bundle != null) {
-                Bitmap bm = (Bitmap) bundle.get("data");
-                if (bm != null) {
-                    ImageToGallery.saveImageToGallery(getApplicationContext(), bm);
+    private void init() {
+        bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
+        viewPager = (ViewPager) findViewById(R.id.vp);
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
-                    Glide.with(this).load(ImageToGallery.filePath).asBitmap().into(new SimpleTarget<Bitmap>() {
-                        @Override
-                        public void onResourceReady(Bitmap bitmap, GlideAnimation glideAnimation) {
-                            //图片加载完成
-                            testtakephoto.setImageBitmap(bitmap);
-                        }
-                    });
+            }
 
+            @Override
+            public void onPageSelected(int position) {
+                if (menuItem != null) {
+                    menuItem.setChecked(false);
+                } else {
+                    bottomNavigationView.getMenu().getItem(0).setChecked(false);
                 }
-            } else {
-                //Toast.makeText(Carout_details.this, "没有压缩的图片数据", Toast.LENGTH_LONG).show();
+                menuItem = bottomNavigationView.getMenu().getItem(position);
+                menuItem.setChecked(true);
             }
-        }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+        viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(viewPagerAdapter);
+        List<Fragment> list = new ArrayList<>();
+        list.add(OutProductFragment.newInstance("驻外"));
+        list.add(AfterSaleFragment.newInstance("售后"));
+        viewPagerAdapter.setList(list);
+
     }
+
+    private void initEvent() {
+
+    }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            menuItem = item;
+            switch (item.getItemId()) {
+                case R.id.navigationOuter:
+                    viewPager.setCurrentItem(0);
+                    return true;
+                case R.id.navigationAfterSale:
+                    viewPager.setCurrentItem(1);
+                    return true;
+            }
+            return false;
+        }
+    };
+
 }

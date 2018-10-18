@@ -4,7 +4,7 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.zhengyuan.emoutproductaftersale"
-        minSdkVersion 15
+        minSdkVersion 17
         targetSdkVersion 26
         versionCode 101
         versionName "1.0"
@@ -46,16 +46,16 @@ repositories {
 dependencies {
     //implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.qihoo360.replugin:replugin-plugin-lib:2.2.1'
-    compileOnly files('libs/baselib.jar')  //库依赖
+    compileOnly files('libs/baselib.jar')
+    //库依赖
     implementation(name: 'reslib', ext: 'aar')
-
-    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
     compile 'com.github.bumptech.glide:glide:3.7.0'
+    //使用ActionBar用到的库
+    implementation 'com.android.support:design:26.1.0'
+    implementation 'com.ashokvarma.android:bottom-navigation-bar:0.9.5'
+    implementation 'com.android.support:support-vector-drawable:26.1.0'
     compile project(':zxing')
-    configurations.all {
-        resolutionStrategy.force 'com.android.support:support-annotations:26.1.0'
-    }
 }

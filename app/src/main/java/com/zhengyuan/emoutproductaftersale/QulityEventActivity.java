@@ -27,7 +27,6 @@ import com.zhengyuan.baselib.constants.EMProApplicationDelegate;
 import com.zhengyuan.baselib.listener.NetworkCallbacks;
 import com.zhengyuan.emoutproductaftersale.utils.DrawableUtil;
 
-import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -95,6 +94,9 @@ public class QulityEventActivity extends Activity {
         });
         menu = (ImageButton) findViewById(R.id.main_menu_bn);
         menu.setVisibility(View.GONE);
+        TextView textView = findViewById(R.id.title_tv);
+        textView.setText("质量事件处理" + "-" + sname);
+
 
         twoCarsHD = findViewById(R.id.twoCars);
         CompanyMoney = findViewById(R.id.CompanyMoney);
@@ -117,7 +119,7 @@ public class QulityEventActivity extends Activity {
                     Toast.makeText(QulityEventActivity.this, "请输入车型，车号后搜索", Toast.LENGTH_SHORT).show();
                     return;
                 } else if (contents.length == 1) {
-                    Toast.makeText(QulityEventActivity.this, "请空格隔开，输入车型或者车号", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(QulityEventActivity.this, "请空格隔开，输入车型和车号", Toast.LENGTH_SHORT).show();
                     return;
                     //解析用户输入的数据
                 } else if (contents.length == 2) {
@@ -195,8 +197,7 @@ public class QulityEventActivity extends Activity {
             }
         });
 
-        TextView textView = findViewById(R.id.title_tv);
-        textView.setText("质量事件处理" + "-" + sname);
+
         //初始化控件
         init();
 
@@ -225,7 +226,7 @@ public class QulityEventActivity extends Activity {
                 if (result1.equals("") || result1 == null) {
                     Toast.makeText(QulityEventActivity.this, "系统故障,请联系信息中心!", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(QulityEventActivity.this, result1, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(QulityEventActivity.this, result1, Toast.LENGTH_SHORT).show();
                     getCompanyName();//获取下拉框的数据，填充到company[]。
 
                 }
@@ -247,7 +248,7 @@ public class QulityEventActivity extends Activity {
                     } else {
                         items = (int) contens.length / 6;
                     }
-                    Toast.makeText(QulityEventActivity.this, "" + result2, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(QulityEventActivity.this, "" + result2, Toast.LENGTH_SHORT).show();
                     showContentsList();//显示数据
                     sortQulityInfoItem();//为子项动态添加监听器。
                     dissProgressBar();
@@ -270,7 +271,7 @@ public class QulityEventActivity extends Activity {
                     } else {
                         items = (int) contens.length / 6;
                     }
-                    Toast.makeText(QulityEventActivity.this, "" + qulityInfoByCar, Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(QulityEventActivity.this, "" + qulityInfoByCar, Toast.LENGTH_SHORT).show();
                     showContentsList();//显示数据
                     sortQulityInfoItem();//为子项动态添加监听器。
                     dissProgressBar();
